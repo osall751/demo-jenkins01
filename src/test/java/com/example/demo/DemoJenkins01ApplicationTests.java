@@ -15,7 +15,7 @@ class DemoJenkins01ApplicationTests {
 
 	@Test
 	void contextLoads() {
-		log.info("Excécution d'un Test ...");
+		log.info("### Excécution d'un Test ...");
 		assertEquals(true, true);
 	}
 

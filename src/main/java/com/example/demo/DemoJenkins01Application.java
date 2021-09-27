@@ -14,11 +14,11 @@ public class DemoJenkins01Application {
 
 	@PostConstruct
 	public void init() {
-		log.info("Démarrage de l'application...");
+		log.info("### Démarrage de l'application...");
 	}
 
 	public static void main(String[] args) {
-		log.info("Exécution de l'application...");
+		log.info("### Exécution de l'application...");
 		SpringApplication.run(DemoJenkins01Application.class, args);
 	}
 
