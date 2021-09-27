@@ -14,7 +14,7 @@ class DemoJenkins01ApplicationTests {
 	public static final Logger log = LoggerFactory.getLogger(DemoJenkins01ApplicationTests.class);
 
 	@Test
-	 contextLoads() {
+	void contextLoads() {
 		log.info("### Excécution d'un Test ...");
 		assertEquals(true, true);
 	}
