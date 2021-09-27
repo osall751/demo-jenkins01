@@ -5,10 +5,10 @@ node {
     dir('spring-jenkins-pipeline') {
         stage("Compilation and Analysis") {
             parallel 'Compilation': {
-                sh "./mvnw clean install -DskipTests"
+                sh "./mvn clean install -DskipTests"
             }, 'Static Analysis': {
                 stage("Checkstyle") {
-                    sh "./mvnw checkstyle:checkstyle"
+                    sh "./mvn checkstyle:checkstyle"
                     
                     step([$class: 'CheckStylePublisher',
                       canRunOnFailed: true,
@@ -26,7 +26,7 @@ node {
             parallel 'Unit tests': {
                 stage("Runing unit tests") {
                     try {
-                        sh "./mvnw test -Punit"
+                        sh "./mvn test -Punit"
                     } catch(err) {
                         step([$class: 'JUnitResultArchiver', testResults: 
                           '**/target/surefire-reports/TEST-*UnitTest.xml'])
@@ -38,7 +38,7 @@ node {
             }, 'Integration tests': {
                 stage("Runing integration tests") {
                     try {
-                        sh "./mvnw test -Pintegration"
+                        sh "./mvn test -Pintegration"
                     } catch(err) {
                         step([$class: 'JUnitResultArchiver', testResults: 
                           '**/target/surefire-reports/TEST-' 
