@@ -4,9 +4,15 @@ pipeline {
     stage('Tests Unitaires') {
       steps {
         sh 'mvn test'
+        
       }
     }
-
+     stage('Tests Qualité') {
+      steps {
+        sh 'mvn checkstyle:checkstyle'
+        
+      }
+    }
     stage('Package') {
       steps {
         sh 'mvn package'
