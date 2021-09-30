@@ -13,7 +13,7 @@ pipeline {
       }
     }
 
-    stage('') {
+    stage('Fin Process') {
       steps {
         echo 'Fin du processus'
       }
